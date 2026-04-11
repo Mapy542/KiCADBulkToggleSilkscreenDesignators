@@ -1,26 +1,26 @@
 name: Build and Release
 
 on:
-  push:
-    tags:
-      - 'v*.*.*'
+    push:
+        tags:
+            - 'v*.*.*'
 
 permissions:
-  contents: write
+    contents: write
 
 jobs:
-  release:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
+    release:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4
 
-      - name: Build package
-        run: |
-          chmod +x build-package.sh
-          ./build-package.sh
+            - name: Build package
+              run: |
+                  chmod +x build-package.sh
+                  ./build-package.sh
 
-      - name: Create GitHub Release
-        uses: softprops/action-gh-release@v2
-        with:
-          files: kicad-package.zip
-          generate_release_notes: true
+            - name: Create GitHub Release
+              uses: softprops/action-gh-release@v2
+              with:
+                  files: kicad-package.zip
+                  generate_release_notes: true
