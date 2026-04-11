@@ -43,3 +43,5 @@ Without using this plugin, you will have to manually hide the reference designat
 ### After "Bulk hide Silkscreen Designators"
 
 ![After using the plugin](/after.png)
+
+Click again to toggle the visibility back on! What a time to be alive!
