@@ -1,12 +1,16 @@
 {
-    "$schema": "https://go.kicad.org/pcm/schemas/v1",
+    "$schema": "https://gitlab.com/kicad/code/kicad/-/raw/master/kicad/pcm/schemas/pcm.v1.schema.json#/definitions/Repository",
     "maintainer": {
-        "name": "Uli Köhler",
+        "name": "Eli Bukoski",
         "contact": {
-            "web": "https://techoverflow.net",
-            "github": "https://github.com/ulikoehler"
+            "github": "https://github.com/Mapy542"
         }
     },
     "name": "Bulk Toggle Silkscreen Designators",
-    "packages": "https://raw.githubusercontent.com/Mapy542/KiCADBulkToggleSilkscreenDesignators/master/packages.json"
+    "packages": {
+        "sha256": "",
+        "update_time_utc": "",
+        "update_timestamp": 0,
+        "url": "https://raw.githubusercontent.com/Mapy542/KiCADBulkToggleSilkscreenDesignators/master/packages.json"
+    }
 }
