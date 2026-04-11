@@ -1,7 +1,8 @@
-# "Bulk hide Silkscreen Designators" KiCAD plugin
+# "Bulk Toggle Silkscreen Designators" KiCAD plugin
 
-"Bulk hide Silkscreen Designators" is a plugin for KiCAD that allows you to hide all the silkscreen designators on a PCB.
-It works on all selected footprints. If you select everything using Ctrl+A, it will hide all reference designators.
+"Bulk Toggle Silkscreen Designators" is a plugin for KiCAD that allows you to toggle the visibility of reference designators on the silkscreen layers for multiple footprints at once. Forked from "Bulk Hide Silkscreen Designators" by ulikoehler.
+
+## Remaining README content from the original plugin:
 
 Only the reference designators on the `F.Silkscreen` and `B.Silkscreen` layer are hidden. `F.Fab` and `B.Fab` are not affected.
 
