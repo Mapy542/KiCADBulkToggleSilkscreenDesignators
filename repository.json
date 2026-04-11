@@ -8,9 +8,9 @@
     },
     "name": "Bulk Toggle Silkscreen Designators",
     "packages": {
-        "sha256": "",
-        "update_time_utc": "",
-        "update_timestamp": 0,
+        "sha256": "c9692e8ca6a5f8cc67ec73f6ee1474331cd764d88e29f387015bd0b85c073148",
+        "update_time_utc": "2026-04-11 21:22:27",
+        "update_timestamp": 1775942547,
         "url": "https://raw.githubusercontent.com/Mapy542/KiCADBulkToggleSilkscreenDesignators/master/packages.json"
     }
 }
