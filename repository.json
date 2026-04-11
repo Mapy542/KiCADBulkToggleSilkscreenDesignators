@@ -1,0 +1,12 @@
+{
+    "$schema": "https://go.kicad.org/pcm/schemas/v1",
+    "maintainer": {
+        "name": "Uli Köhler",
+        "contact": {
+            "web": "https://techoverflow.net",
+            "github": "https://github.com/ulikoehler"
+        }
+    },
+    "name": "Bulk Toggle Silkscreen Designators",
+    "packages": "https://raw.githubusercontent.com/Mapy542/KiCADBulkToggleSilkscreenDesignators/master/packages.json"
+}

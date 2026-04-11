@@ -6,9 +6,9 @@ import wx
 
 class BulkHideSilkscreenDesignators(pcbnew.ActionPlugin):
     def defaults(self):
-        self.name = "Bulk hide silkscreen designators"
+        self.name = "Bulk Toggle silkscreen designators"
         self.category = "Silkscreen"
-        self.description = "Hide all silkscreen reference designators for selected footprints"
+        self.description = "Hide/Show all silkscreen reference designators for selected footprints"
         self.show_toolbar_button = True
         self.icon_file_name = os.path.join(os.path.dirname(__file__), "icon.png")
 

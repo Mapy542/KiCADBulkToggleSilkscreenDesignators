@@ -13,11 +13,64 @@ jobs:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v4
+              with:
+                  token: ${{ secrets.GITHUB_TOKEN }}
 
             - name: Build package
               run: |
                   chmod +x build-package.sh
                   ./build-package.sh
+
+            - name: Compute package metadata
+              id: pkg
+              run: |
+                  echo "sha256=$(sha256sum kicad-package.zip | awk '{print $1}')" >> "$GITHUB_OUTPUT"
+                  echo "download_size=$(stat -c%s kicad-package.zip)" >> "$GITHUB_OUTPUT"
+                  echo "install_size=$(unzip -l kicad-package.zip | tail -1 | awk '{print $1}')" >> "$GITHUB_OUTPUT"
+                  echo "version=${GITHUB_REF_NAME#v}" >> "$GITHUB_OUTPUT"
+
+            - name: Update packages.json
+              env:
+                  VERSION: ${{ steps.pkg.outputs.version }}
+                  SHA256: ${{ steps.pkg.outputs.sha256 }}
+                  DOWNLOAD_SIZE: ${{ steps.pkg.outputs.download_size }}
+                  INSTALL_SIZE: ${{ steps.pkg.outputs.install_size }}
+                  TAG: ${{ github.ref_name }}
+                  REPO: ${{ github.repository }}
+              run: |
+                  python3 - <<'EOF'
+                  import json, os
+
+                  with open("packages.json") as f:
+                      data = json.load(f)
+
+                  new_version = {
+                      "version": os.environ["VERSION"],
+                      "status": "stable",
+                      "kicad_version": "6.0",
+                      "download_url": f"https://github.com/{os.environ['REPO']}/releases/download/{os.environ['TAG']}/kicad-package.zip",
+                      "download_sha256": os.environ["SHA256"],
+                      "download_size": int(os.environ["DOWNLOAD_SIZE"]),
+                      "install_size": int(os.environ["INSTALL_SIZE"])
+                  }
+
+                  versions = data["packages"][0]["versions"]
+                  versions = [v for v in versions if v["version"] != os.environ["VERSION"]]
+                  versions.insert(0, new_version)
+                  data["packages"][0]["versions"] = versions
+
+                  with open("packages.json", "w") as f:
+                      json.dump(data, f, indent=4)
+                      f.write("\n")
+                  EOF
+
+            - name: Commit updated packages.json
+              run: |
+                  git config user.name "github-actions[bot]"
+                  git config user.email "github-actions[bot]@users.noreply.github.com"
+                  git add packages.json
+                  git commit -m "chore: update packages.json for ${{ github.ref_name }}"
+                  git push origin HEAD:master
 
             - name: Create GitHub Release
               uses: softprops/action-gh-release@v2

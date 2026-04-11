@@ -1,8 +1,8 @@
 {
     "$schema": "https://go.kicad.org/pcm/schemas/v1",
-    "name": "Bulk hide silkscreen designators",
-    "description": "Hide all silkscreen reference designators for selected footprints",
-    "description_full": "Hide all silkscreen reference designators for selected footprints",
+    "name": "Bulk Toggle silkscreen designators",
+    "description": "Toggle all silkscreen reference designators for selected footprints",
+    "description_full": "Hide/Show all silkscreen reference designators for selected footprints",
     "identifier": "com.github.ulikoehler.kicad-bulk-hide-silkscreen-designators",
     "type": "plugin",
     "author": {
@@ -13,28 +13,23 @@
         }
     },
     "maintainer": {
-        "name": "Uli Köhler",
+        "name": "Eli Bukoski",
         "contact": {
-            "web": "https://techoverflow.net",
-            "github": "https://github.com/ulikoehler"
+            "web": "https://bukoski.dev",
+            "github": "https://github.com/Mapy542"
         }
     },
     "license": "Unlicense",
     "resources": {
-        "homepage": "https://github.com/ulikoehler/KiCADBulkHideSilkscreenDesignators"
+        "homepage": "https://github.com/Mapy542/KiCADBulkToggleSilkscreenDesignators"
     },
-    "tags": [
-        "silkscreen",
-        "hide",
-        "visible",
-        "efficiency"
-    ],
+    "tags": ["silkscreen", "hide", "visible", "efficiency"],
     "versions": [
         {
             "version": "1.0.0",
             "status": "stable",
             "kicad_version": "6.0",
-            "download_url": "https://github.com/ulikoehler/KiCADBulkHideSilkscreenDesignators/releases/download/v1.0.0/kicad-package.zip"
+            "download_url": "https://github.com/Mapy542/KiCADBulkToggleSilkscreenDesignators/releases/download/v1.0.0/kicad-package.zip"
         }
     ]
 }

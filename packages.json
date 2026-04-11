@@ -1,0 +1,32 @@
+{
+    "packages": [
+        {
+            "$schema": "https://go.kicad.org/pcm/schemas/v1",
+            "name": "Bulk Toggle silkscreen designators",
+            "description": "Toggle all silkscreen reference designators for selected footprints",
+            "description_full": "Hide/Show all silkscreen reference designators for selected footprints",
+            "identifier": "com.github.ulikoehler.kicad-bulk-hide-silkscreen-designators",
+            "type": "plugin",
+            "author": {
+                "name": "Uli Köhler",
+                "contact": {
+                    "web": "https://techoverflow.net",
+                    "github": "https://github.com/ulikoehler"
+                }
+            },
+            "maintainer": {
+                "name": "Eli Bukoski",
+                "contact": {
+                    "web": "https://bukoski.dev",
+                    "github": "https://github.com/Mapy542"
+                }
+            },
+            "license": "Unlicense",
+            "resources": {
+                "homepage": "https://github.com/Mapy542/KiCADBulkToggleSilkscreenDesignators"
+            },
+            "tags": ["silkscreen", "toggle", "hide", "visible", "efficiency"],
+            "versions": []
+        }
+    ]
+}
