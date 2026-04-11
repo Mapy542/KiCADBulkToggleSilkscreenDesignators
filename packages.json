@@ -8,7 +8,7 @@
             "identifier": "com.github.ulikoehler.kicad-bulk-hide-silkscreen-designators",
             "type": "plugin",
             "author": {
-                "name": "Uli Köhler",
+                "name": "Uli K\u00f6hler",
                 "contact": {
                     "web": "https://techoverflow.net",
                     "github": "https://github.com/ulikoehler"
@@ -25,8 +25,24 @@
             "resources": {
                 "homepage": "https://github.com/Mapy542/KiCADBulkToggleSilkscreenDesignators"
             },
-            "tags": ["silkscreen", "toggle", "hide", "visible", "efficiency"],
-            "versions": []
+            "tags": [
+                "silkscreen",
+                "toggle",
+                "hide",
+                "visible",
+                "efficiency"
+            ],
+            "versions": [
+                {
+                    "version": "1.0.0",
+                    "status": "stable",
+                    "kicad_version": "6.0",
+                    "download_url": "https://github.com/Mapy542/KiCADBulkToggleSilkscreenDesignators/releases/download/v1.0.0/kicad-package.zip",
+                    "download_sha256": "686937f47312a7b5ff7458cf481343758d1c2bfb9316a9996955b8c4634f79e5",
+                    "download_size": 5530,
+                    "install_size": 6069
+                }
+            ]
         }
     ]
 }
