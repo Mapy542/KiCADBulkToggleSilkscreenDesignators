@@ -64,15 +64,18 @@ jobs:
                       f.write("\n")
                   EOF
 
+            - name: Build resources.zip
+              run: |
+                  IDENTIFIER=$(python3 -c "import json; print(open('metadata.json').read())" | python3 -c "import json,sys; print(json.load(sys.stdin)['identifier'])")
+                  mkdir -p resources_build/${IDENTIFIER}
+                  cp icon-64x64.png resources_build/${IDENTIFIER}/icon.png
+                  cd resources_build && zip -r ../resources.zip *
+
             - name: Update repository.json
               run: |
                   python3 - <<'EOF'
                   import json, hashlib, datetime, os
 
-                  with open("packages.json", "rb") as f:
-                      raw = f.read()
-
-                  sha256 = hashlib.sha256(raw).hexdigest()
                   now = datetime.datetime.utcnow()
                   timestamp = int(now.timestamp())
                   update_time = now.strftime("%Y-%m-%d %H:%M:%S")
@@ -80,9 +83,15 @@ jobs:
                   with open("repository.json") as f:
                       repo = json.load(f)
 
-                  repo["packages"]["sha256"] = sha256
+                  with open("packages.json", "rb") as f:
+                      repo["packages"]["sha256"] = hashlib.sha256(f.read()).hexdigest()
                   repo["packages"]["update_timestamp"] = timestamp
                   repo["packages"]["update_time_utc"] = update_time
+
+                  with open("resources.zip", "rb") as f:
+                      repo["resources"]["sha256"] = hashlib.sha256(f.read()).hexdigest()
+                  repo["resources"]["update_timestamp"] = timestamp
+                  repo["resources"]["update_time_utc"] = update_time
 
                   with open("repository.json", "w") as f:
                       json.dump(repo, f, indent=4)
@@ -93,8 +102,8 @@ jobs:
               run: |
                   git config user.name "github-actions[bot]"
                   git config user.email "github-actions[bot]@users.noreply.github.com"
-                  git add packages.json repository.json
-                  git commit -m "chore: update packages.json and repository.json for ${{ github.ref_name }}"
+                  git add packages.json repository.json resources.zip
+                  git commit -m "chore: update packages.json, repository.json, resources.zip for ${{ github.ref_name }}"
                   git push origin HEAD:master
 
             - name: Create GitHub Release
