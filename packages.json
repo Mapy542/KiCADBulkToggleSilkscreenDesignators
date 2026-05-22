@@ -25,16 +25,22 @@
             "resources": {
                 "homepage": "https://github.com/Mapy542/KiCADBulkToggleSilkscreenDesignators"
             },
-            "tags": ["silkscreen", "toggle", "hide", "visible", "efficiency"],
+            "tags": [
+                "silkscreen",
+                "toggle",
+                "hide",
+                "visible",
+                "efficiency"
+            ],
             "versions": [
                 {
                     "version": "1.1.0",
                     "status": "stable",
                     "kicad_version": "6.0",
                     "download_url": "https://github.com/Mapy542/KiCADBulkToggleSilkscreenDesignators/releases/download/v1.1.0/kicad-package.zip",
-                    "download_sha256": "838dd20b04f733b837cdeff98dbb12d972601e32699f4e3a68f130b72141c43d",
-                    "download_size": 7017,
-                    "install_size": 8263
+                    "download_sha256": "0761230d2c2f5acb7e84cd96993835343ad6636455af922c21401e1b4125cd3d",
+                    "download_size": 7018,
+                    "install_size": 8265
                 },
                 {
                     "version": "1.0.3",
